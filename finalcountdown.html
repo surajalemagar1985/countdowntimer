@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		body{
+			background-image: url(m1.jpg);
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		#container{
+			width: 100%;
+			display:flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 100px;
+
+		}
+		#row{
+			margin: 10px;
+			line-height: 5px;
+			text-align: center;
+			
+		}
+		span{
+			font-weight:bolder;
+			font-size: 40px;
+			padding: 10px;
+			color: #ff6600;
+		}
+		h1{
+			text-align: center;
+			margin-top: 100px;
+			font-size: 50px;
+			color: #ff6600;
+		}
+		p{
+			padding: 10px;
+			font-size: 30px;
+			color:#ff6600 ;
+			text-decoration: underline;
+		}
+
+
+	</style>
+</head>
+<body>
+
+	<h1 id="happy">Coming Soon(Mahashivaratri)</h1>
+	<div id="container">
+		<div id="row">
+			<div id="day">
+				<span>Days</span>
+				<p id="pday"></p>
+			</div>
+		</div>
+		<div id="row">
+			<div id="hours">
+				<span>Hours</span>
+				<p id="phour"></p>
+			</div>
+		</div>
+		<div id="row">
+			<div id="Min">
+				<span>Minutes</span>
+				<p id="pmin"></p>
+			</div>
+		</div>
+		<div id="row">
+			<div id="Second">
+				<span>Seconds</span>
+				<p id="psec"></p>
+			</div>
+		</div>
+	</div>
+
+
+
+<script type="text/javascript">
+
+	var targetDate = new Date("Mar 11,2021").getTime();
+
+
+
+	var set = setInterval(countdown,1000);
+
+
+	function countdown(){
+	var recentDate = new Date().getTime();
+
+	var timeDiff = targetDate - recentDate;
+
+	var day = Math.floor( timeDiff / (24 * 60 * 60 * 1000));
+
+	var hour = Math.floor((timeDiff % (24 * 60 * 60 * 1000))/(60 * 60 * 1000)); 
+
+	var min = Math.floor((timeDiff % (60 * 60 * 1000)/(60 * 1000)));
+
+	var sec = Math.floor((timeDiff % (60 *1000) /1000));
+
+	document.getElementById("pday").innerHTML = day;
+	document.getElementById("phour").innerHTML = hour;
+	document.getElementById("pmin").innerHTML = min;
+	document.getElementById("psec").innerHTML = sec;
+
+
+
+	}
+	if(timeDiff<0){
+		document.getElementById("happy").innerHTML="Happy Shivaratri";
+	}
+
+	
+</script>
+</body>
+</html>
